@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class WateraAPI: DataRepository  {
+final class DataAPI: DataRepository  {
     
     func fetchData(completion: @escaping (Result<ResponseAPI, Error>) -> Void) {
        // let urlString = "https://szorin.vodovoz.ru/newmobile/glavnaya/super_top.php?action=topglav"

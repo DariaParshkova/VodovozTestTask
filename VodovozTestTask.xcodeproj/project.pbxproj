@@ -11,6 +11,7 @@
 		659150DE2C6CEDDB004EB0F5 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659150DD2C6CEDDB004EB0F5 /* CategoriesViewController.swift */; };
 		65CF38F02C6D1FA1002F977B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF38EF2C6D1FA1002F977B /* RootViewController.swift */; };
 		65CF38F22C6D3FD6002F977B /* ExtendedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF38F12C6D3FD6002F977B /* ExtendedPrice.swift */; };
+		65CF38F62C6D41C0002F977B /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF38F52C6D41BF002F977B /* Resources.swift */; };
 		65E28F012C6CC16D005B93B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E28F002C6CC16D005B93B4 /* AppDelegate.swift */; };
 		65E28F032C6CC16D005B93B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E28F022C6CC16D005B93B4 /* SceneDelegate.swift */; };
 		65E28F052C6CC16D005B93B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E28F042C6CC16D005B93B4 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		659150DD2C6CEDDB004EB0F5 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		65CF38EF2C6D1FA1002F977B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		65CF38F12C6D3FD6002F977B /* ExtendedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedPrice.swift; sourceTree = "<group>"; };
+		65CF38F52C6D41BF002F977B /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		65E28EFD2C6CC16D005B93B4 /* VodovozTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VodovozTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E28F002C6CC16D005B93B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65E28F022C6CC16D005B93B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		65CF38F42C6D41A5002F977B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				65CF38F72C6D4466002F977B /* Extension */,
+				65CF38F52C6D41BF002F977B /* Resources.swift */,
+				65E28F552C6CE2FB005B93B4 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		65CF38F72C6D4466002F977B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				65E28F532C6CE116005B93B4 /* Array+ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		65E28EF42C6CC16D005B93B4 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +164,7 @@
 		65E28EFF2C6CC16D005B93B4 /* VodovozTestTask */ = {
 			isa = PBXGroup;
 			children = (
+				65CF38F42C6D41A5002F977B /* Helpers */,
 				65E28F4E2C6CDC46005B93B4 /* Products */,
 				65E28F492C6CD90F005B93B4 /* Cell */,
 				65E28F462C6CD7A6005B93B4 /* Categories */,
@@ -155,8 +176,6 @@
 				65E28F092C6CC16E005B93B4 /* Assets.xcassets */,
 				65E28F0B2C6CC16E005B93B4 /* LaunchScreen.storyboard */,
 				65E28F0E2C6CC16E005B93B4 /* Info.plist */,
-				65E28F532C6CE116005B93B4 /* Array+ext.swift */,
-				65E28F552C6CE2FB005B93B4 /* Constants.swift */,
 			);
 			path = VodovozTestTask;
 			sourceTree = "<group>";
@@ -423,6 +442,7 @@
 				65E28F312C6CC786005B93B4 /* WaterAPI.swift in Sources */,
 				65E28F542C6CE116005B93B4 /* Array+ext.swift in Sources */,
 				65E28F032C6CC16D005B93B4 /* SceneDelegate.swift in Sources */,
+				65CF38F62C6D41C0002F977B /* Resources.swift in Sources */,
 				65E28F502C6CDC62005B93B4 /* ProductsViewCntroller.swift in Sources */,
 				65E28F452C6CD28C005B93B4 /* CategoriesViewModel.swift in Sources */,
 				65E28F522C6CDC73005B93B4 /* ProductCell.swift in Sources */,

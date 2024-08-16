@@ -6,6 +6,11 @@
 //
 
 import Foundation
+
 struct Constants {
     static let baseURL = "https://szorin.vodovoz.ru"
 }
+
+
+
+

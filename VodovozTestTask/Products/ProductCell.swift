@@ -112,3 +112,108 @@ final class ProductCell: BaseCell {
 }
 
 
+/*
+
+final class ProductCell: BaseCell {
+    
+    private let imageView = UIImageView()
+    private let addFavouriteButton = UIButton()
+    private let addBusketButton = UIButton()
+    private let priceLabel = UILabel()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+        setupConstraints()
+        setupShadow()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupShadow() {
+        contentView.layer.shadowColor = Resources.Colors.shadowColor
+        contentView.layer.shadowOffset = Resources.ConstantsForProductCell.shadowOffset
+        contentView.layer.shadowOpacity = Resources.ConstantsForProductCell.shadowOpacity
+        contentView.layer.shadowRadius = Resources.ConstantsForProductCell.shadowRadius
+        contentView.layer.masksToBounds = false
+    }
+        
+    func configure(with product: ProductData) {
+        let priceText = "\(product.extendedPrice.first?.price ?? 0) P"
+        
+        let attributedString = NSMutableAttributedString(
+            string: priceText,
+            attributes: [NSAttributedString.Key.font: Resources.Fonts.normalFont]
+        )
+        
+        let boldTextRange = NSRange(location: 0, length: priceText.count)
+        attributedString.addAttributes(
+            [NSAttributedString.Key.font: Resources.Fonts.boldFont],
+            range: boldTextRange
+        )
+        
+        priceLabel.attributedText = attributedString
+    
+        if let relativePath = product.detailPicture,
+           let url = URL(string: Constants.baseURL + relativePath) {
+            imageView.kf.setImage(
+                with: url,
+                placeholder: UIImage(systemName: "antenna.radiowaves.left.and.right.slash"),
+                options: [.transition(.fade(0.2))],
+                completionHandler: { result in
+                    switch result {
+                    case .success(_):
+                        break
+                    case .failure(_):
+                        self.imageView.image = UIImage(systemName: "photo.fill")
+                    }
+                }
+            )
+        } else {
+            imageView.image = UIImage(systemName: "photo.fill")
+        }
+    }
+    
+    private func setupUI() {
+        contentView.layer.cornerRadius = Resources.ConstantsForProductCell.cornerRadius
+        contentView.backgroundColor = Resources.Colors.backgroundColor
+        
+        addFavouriteButton.setImage(Resources.Icons.heart, for: .normal)
+        addBusketButton.setImage(Resources.Icons.cart, for: .normal)
+        
+        contentView.addSubview(addFavouriteButton)
+        contentView.addSubview(imageView)
+        contentView.addSubview(addBusketButton)
+        contentView.addSubview(priceLabel)
+    }
+    
+    private func setupConstraints() {
+        addFavouriteButton.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        addBusketButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            addFavouriteButton.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            addFavouriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-Resources.ConstantsForProductCell.edgePadding),
+            addFavouriteButton.heightAnchor.constraint(equalToConstant: Resources.ConstantsForProductCell.favouriteButtonSize.height),
+            addFavouriteButton.widthAnchor.constraint(equalToConstant: Resources.ConstantsForProductCell.favouriteButtonSize.width),
+            
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: Resources.ConstantsForProductCell.imageSize.width),
+            imageView.heightAnchor.constraint(equalToConstant: Resources.ConstantsForProductCell.imageSize.height),
+            
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            
+            addBusketButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2),
+            addBusketButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            addBusketButton.widthAnchor.constraint(equalToConstant: Resources.ConstantsForProductCell.busketButtonSize.width),
+            addBusketButton.heightAnchor.constraint(equalToConstant: Resources.ConstantsForProductCell.busketButtonSize.height),
+        ])
+    }
+}
+*/

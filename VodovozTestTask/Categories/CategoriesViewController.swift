@@ -4,12 +4,11 @@
 //
 //  Created by Parshkova Daria on 14.08.2024.
 //
-
 import UIKit
 
 final class CategoriesViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
-    private var selectedCategoryIndex = 0
+    private var selectCategoryIndex = 0
     private let categoriesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let productsViewController = ProductsViewController()
     private let viewModel: CategoriesViewModel = CategoriesViewModelA()
@@ -27,17 +26,16 @@ final class CategoriesViewController: UIViewController, UICollectionViewDelegate
         
         return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
             guard let self = self else { return nil }
-           
             return createCategories()
-           
         }, configuration: configuration)
     }
     
     private func createCategories() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .estimated(104),
+            widthDimension: .estimated(124),
             heightDimension: .absolute(40)
         )
+        
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets.trailing = 24
         
@@ -51,10 +49,9 @@ final class CategoriesViewController: UIViewController, UICollectionViewDelegate
         )
                 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets.leading = 2
+        section.contentInsets.leading = 4
         section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
         section.interGroupSpacing = 8
-        
         return section
     }
     
@@ -92,7 +89,7 @@ final class CategoriesViewController: UIViewController, UICollectionViewDelegate
         
     private func updateProductsViewController() {
         guard !viewModel.categories.isEmpty else { return }
-        let selectedCategory = viewModel.categories[selectedCategoryIndex]
+        let selectedCategory = viewModel.categories[selectCategoryIndex]
         
         UIView.transition(with: productsViewController.view,
                           duration: 0.2,
@@ -104,8 +101,8 @@ final class CategoriesViewController: UIViewController, UICollectionViewDelegate
     
     private func selectFirstCategory() {
         guard !viewModel.categories.isEmpty else { return }
-        selectedCategoryIndex = 0
-        let indexPath = IndexPath(item: selectedCategoryIndex, section: 0)
+        selectCategoryIndex = 0
+        let indexPath = IndexPath(item: selectCategoryIndex, section: 0)
         categoriesCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
         updateProductsViewController()
     }
@@ -143,7 +140,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
 extension CategoriesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCategoryIndex = indexPath.item
+        selectCategoryIndex = indexPath.item
         updateProductsViewController()
         
         scrollToInitialPosition()
@@ -153,15 +150,14 @@ extension CategoriesViewController: UICollectionViewDelegate {
 // MARK: - CategoriesViewModelDelegate
 
 extension CategoriesViewController: CategoriesViewModelDelegate {
+
+    func updateProducts() {
+        updateProductsViewController()
+    }
     
     func hideSections() {
         categoriesCollectionView.isHidden = true
         productsViewController.view.isHidden = true
-    }
-    
-    
-    func updateProducts() {
-        updateProductsViewController()
     }
     
     func reloadData() {
@@ -169,3 +165,4 @@ extension CategoriesViewController: CategoriesViewModelDelegate {
         selectFirstCategory()
     }
 }
+

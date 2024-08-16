@@ -19,7 +19,7 @@ class RootViewController: UIViewController {
     private func setupUI() {
         addChild(categoriesViewController)
         view.addSubview(categoriesViewController.view)
-        view.backgroundColor = .white
+        view.backgroundColor = Resources.Colors.backgroundColor
         
         categoriesViewController.didMove(toParent: self)
         categoriesViewController.view.translatesAutoresizingMaskIntoConstraints = false

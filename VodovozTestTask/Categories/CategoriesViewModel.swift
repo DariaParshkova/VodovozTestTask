@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 protocol CategoriesViewModelDelegate: AnyObject {
     func updateProducts()
     func reloadData()
@@ -15,14 +16,13 @@ protocol CategoriesViewModelDelegate: AnyObject {
 protocol CategoriesViewModel: AnyObject {
     var categories: [Tovary] { get set }
     var delegate: CategoriesViewModelDelegate? { get set }
-    
     func loadData()
 }
 
 final class CategoriesViewModelA: CategoriesViewModel {
     
     var categories: [Tovary] = []
-    let dataRepository = WateraAPI()
+    let dataRepository = DataAPI()
     weak var delegate: CategoriesViewModelDelegate?
     
     func loadData() {

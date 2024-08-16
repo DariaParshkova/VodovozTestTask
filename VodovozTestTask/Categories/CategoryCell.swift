@@ -10,7 +10,7 @@ import UIKit
 final class CategoryCell: BaseCell {
     override var isSelected: Bool {
         didSet {
-            label.textColor = isSelected ? UIColor.systemBlue : UIColor.black
+            label.textColor = isSelected ? Resources.Colors.selected : Resources.Colors.notSelected
         }
     }
     
@@ -35,7 +35,7 @@ final class CategoryCell: BaseCell {
     }
     
     private func setupShadow() {
-        contentView.layer.shadowColor = UIColor.gray.cgColor
+        contentView.layer.shadowColor = Resources.Colors.shadowColor
         contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
         contentView.layer.shadowOpacity = 0.3
         contentView.layer.shadowRadius = 4
@@ -44,7 +44,7 @@ final class CategoryCell: BaseCell {
     
     private func setupUI() {
         contentView.layer.cornerRadius = 10
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = Resources.Colors.backgroundColor
         
         contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
